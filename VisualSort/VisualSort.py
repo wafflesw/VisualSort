@@ -99,7 +99,7 @@ def count_sort(nums):
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('World')
+    print_hi('Mes')
     numList = [random.randint(1, 100)]
     for x in range(99):
         x += 1
