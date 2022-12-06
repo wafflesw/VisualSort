@@ -159,13 +159,55 @@ def heapify(nums, n, x):
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
+    print("generating numbers....")
     numList = [random.randint(1, 100)]
     for x in range(99):
         x += 1
         numList.append(random.randint(1, 100))
     print(*numList)
-    heap_sort(numList)
-    print(*numList)
-    plt.scatter(range(len(numList)), numList)
-    plt.show()
+    ans = True
+    while ans:
+        display = True
+        option = input("What sort would you like to view(use option to view avaliable sorts or q to quit): ")
+        if option == "option":
+            print("bubble(bubble sort), insert(insert sort), merge(merge sort), \n" 
+                  "quick(quick sort), count(count sort), bucket(bucket sort), \n" 
+                  "radix(radix sort), heap(heap sort)")
+            display = False
+        elif option == "bubble":
+            bubble_sort(numList)
+        elif option == "insert":
+            insert_sort(numList)
+        elif option == "merge":
+           merge_sort(numList)
+        elif option == "quick":
+            quick_sort(numList, 0, len(numList) -1)
+        elif option == "count":
+            count_sort(numList)
+        elif option == "bucket":
+            bucket_sort(numList,10)
+        elif option == "radix":
+            radix_sort(numList)
+        elif option == "heap":
+            heap_sort(numList)
+        elif option == 'q':
+            ans = False
+            display = False
+        else:
+            print("options not found")
+            display = False
+        if display:
+            print(*numList)
+            plt.scatter(range(len(numList)), numList)
+            plt.show()
+            q = input("would you like to try again?(y or n): ")
+            if q == 'y':
+                for x in range(100):
+                    numList[x] = random.randint(1, 100)
+                print("numbers randomized")
+                print(*numList)
+            else:
+                print("Thank you for using Vsort goodbye")
+                ans = False
+
 
