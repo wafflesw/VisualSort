@@ -134,8 +134,26 @@ def radix_sort(nums):
             nums[i] = output[i]
         exp *=10
 
+def heap_sort(nums):
+    n = len(nums)
+    for i in range(n//2-1, -1, -1):
+        heapify(nums,n,i)
+    for i in range(n-1, 0, -1):
+        nums[i], nums[0] = nums[0], nums[i]
+        heapify(nums, i , 0)
 
-            
+def heapify(nums, n, x):
+    large = x
+    l = 2*x+1
+    r = 2*x+2
+    if l < n and nums[large] < nums[l]:
+        large  = l 
+    if r < n and nums[large] < nums[r]:
+        large = r
+    if large != x:
+        nums[x], nums[large] = nums[large], nums[x]
+        heapify(nums, n, large)
+
 
 
 
@@ -146,7 +164,7 @@ if __name__ == '__main__':
         x += 1
         numList.append(random.randint(1, 100))
     print(*numList)
-    radix_sort(numList)
+    heap_sort(numList)
     print(*numList)
     plt.scatter(range(len(numList)), numList)
     plt.show()
