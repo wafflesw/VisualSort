@@ -69,19 +69,21 @@ def update(frame, nums, container):
     for rectangle, height in zip(container.patches, nums.full_copies[frame]):
         rectangle.set_height(height)
         rectangle.set_color("#1f77b4")
+    idx, op = nums.GetActivity(frame)
+    if op == "get":
+        container.patches[idx].set_color("magenta")
+    elif op == "set":
+        container.patches[idx].set_color("red")
     return(*container,)
 
 def bubble_sort(nums):
     t0 = tstart()
-    swap = True
-    x = np.arange(0,len(nums),1)
-    while swap:
-        swap = False
-        for i in range(len(nums)):
-            for j in range(0, len(nums)-i-1):
-                if nums[j] > nums[j+1]:
-                    swap = True
-                    nums[j], nums[j+1] = nums[j+1], nums[j]
+    n = len(nums)
+    x = np.arange(0,n,1)
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if nums[j] > nums[j+1]:
+                nums[j] , nums[j+1] = nums[j+1], nums[j]
     print(tstop(t0))
 
 
