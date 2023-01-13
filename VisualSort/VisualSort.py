@@ -1,3 +1,4 @@
+
 import time
 import wave
 import numpy as np
@@ -80,6 +81,7 @@ def update(frame, nums, container):
         container.patches[idx].set_color("red")
     return(*container,)
 
+
 def bubble_sort(nums):
     t0 = tstart()
     n = len(nums)
@@ -146,6 +148,7 @@ def heapify(nums, n, x):
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     print("generating numbers....")
+
     numList =np.round(np.linspace(0,1000,20),0)
     np.random.seed(0)
     np.random.shuffle(numList)
@@ -158,6 +161,7 @@ if __name__ == '__main__':
         if option == "option":
             print("\n\nbubble(bubble sort), insert(insert sort), " 
                   "quick(quick sort), heap(heap sort)\n\n")
+
             display = False
         elif option == "bubble":
             bubble_sort(numList)
@@ -189,5 +193,6 @@ if __name__ == '__main__':
         else:
             print("Thank you for using Vsort goodbye")
             ans = False
+
 
 
