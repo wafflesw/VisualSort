@@ -167,7 +167,7 @@ if __name__ == '__main__':
             bubble_sort(numList)
         elif option == "insert":
             insert_sort(numList)
-        elif option == "merge":
+        elif option == "quick":
             quick_sort(numList, 0, len(numList) -1)
         elif option == "heap":
             heap_sort(numList)
